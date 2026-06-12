@@ -1,10 +1,11 @@
 import express from 'express';
 import routes from './routes/routes'
 import cors from 'cors'
+import dotenv from 'dotenv'
 
 const app = express();
-const port = 3306;
-
+const port = 8080;
+dotenv.config()
 app.use(cors({
     origin: '*'
 }))

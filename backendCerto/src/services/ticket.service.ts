@@ -42,9 +42,9 @@ export const updateTicket = async(id: number,data: updateTicketDto)=>{
 }
 export const deleteTicket = async(id: number)=>{
     return await prisma.ticket.delete({
-     where: {
-         id: id
-     }
+        where: {
+            id: id
+        }
     })
 }
 export const startTicket = async(id: number)=>{
@@ -59,7 +59,7 @@ export const startTicket = async(id: number)=>{
 
 }
 export const finishTicket = async(id: number)=>{
-    const finish = Date()
+    const finish = new Date()
     return await prisma.ticket.findFirstOrThrow({
         where: {
             id: id

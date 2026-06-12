@@ -16,8 +16,8 @@ export default class TicketController {
     }
     static async show(req: Request, res: Response){
         try{
-            await showTickets()
-            return res.status(200).send({response: "Tickets"})
+            const tickets = await showTickets()
+            return res.status(200).send({response: tickets})
         }
         catch(e){
             return res.status(404).send({ message: "Nenhum Ticket encontrado"})
@@ -25,9 +25,8 @@ export default class TicketController {
     }
     static async showById(req: Request, res: Response){
         const id = req.params
-        try{
-            await showTicketById(Number(id))
-            return res.status(200).send({response: "Ticket Encontrado"})
+        try{await showTicketById(Number(id))
+            return res.status(200).send({response: "ticket"})
         }
         catch(e){
             return res.status(404).send({ message: "Nenhum Ticket encontrado"})
