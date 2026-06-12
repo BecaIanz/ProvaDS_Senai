@@ -24,7 +24,7 @@ export default class TicketController {
         }
     }
     static async showById(req: Request, res: Response){
-        const id = req.params
+        const {id} = req.params
         try{await showTicketById(Number(id))
             return res.status(200).send({response: "ticket"})
         }
@@ -34,7 +34,7 @@ export default class TicketController {
 
     }
     static async update(req: Request, res: Response){
-        const id = req.params
+        const {id} = req.params
         const data: updateTicketDto = req.body
         try{
             await updateTicket(Number(id), data)
@@ -45,7 +45,7 @@ export default class TicketController {
         }
     }
     static async delete(req: Request, res: Response){
-        const id = req.params
+        const {id} = req.params
         try{
             await deleteTicket(Number(id))
             return res.status(200).send({ message: "Ticket Deletado"})
@@ -55,7 +55,7 @@ export default class TicketController {
         }
     }
     static async start(req: Request, res: Response){
-        const id = req.params
+        const {id} = req.params
         try{
             await startTicket(Number(id))
             return res.status(200).send({message: "Ticket Iniciado"})
@@ -65,7 +65,7 @@ export default class TicketController {
         }
     }
     static async finish(req: Request, res: Response){
-        const id = req.params
+        const {id} = req.params
         try{
             await deleteTicket(Number(id))
             return res.status(200).send({ message: "Ticket Finalizado com sucesso"})
